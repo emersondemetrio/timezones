@@ -1,0 +1,22 @@
+[
+	{
+		"name": "San Francisco/USA",
+		"timeZone": "America/Los_Angeles"
+	},
+
+	{
+		"name": "Florianópolis/Brazil",
+		"timeZone": "America/Sao_Paulo",
+		"folks": []
+	},
+	{
+		"name": "Lisbon/Portugal",
+		"timeZone": "Europe/Lisbon",
+		"folks": []
+	},
+	{
+		"name": "Munich/Germany",
+		"timeZone": "Europe/Berlin",
+		"folks": []
+	}
+]
