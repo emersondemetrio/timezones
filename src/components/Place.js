@@ -18,8 +18,8 @@ const formatDate = (timeZone, date) =>
 		timeZone,
 	}).format(date);
 
-const openPlace = (city) =>
-	window.open(`https://news.google.com/topstories?q=${encodeURI(city)}`);
+const getNewsURL = (city) =>
+	`https://google.com/search?q=${encodeURI(city)}&source=lnms&tbm=nws`;
 
 const Loading = () => (
 	<svg
@@ -58,6 +58,7 @@ const Loading = () => (
 const Place = ({ name, timeZone, city }) => {
 	const [tz, setTz] = useState(formatDate(timeZone, new Date()));
 	const [weather, setWeather] = useState(null);
+	const [error, setError] = useState(false);
 	const [loading, setLoading] = useState(false);
 
 	useEffect(() => {
@@ -70,7 +71,12 @@ const Place = ({ name, timeZone, city }) => {
 
 	const getWeather = async () => {
 		setLoading(true);
-		setWeather(await getWeatherOf(city));
+		try {
+			setWeather(await getWeatherOf(city));
+		} catch (error) {
+			console.info(error);
+			setError(true);
+		}
 		setLoading(false);
 	};
 
@@ -82,15 +88,33 @@ const Place = ({ name, timeZone, city }) => {
 		<div className="card">
 			<h3>{name}</h3>
 			<h4>{tz}</h4>
-			<div className="info">{loading && <Loading />}</div>
+			{loading && (
+				<div className="info">
+					<Loading />
+				</div>
+			)}
+			{error && (
+				<div className="info">
+					<p>Unable to get weather info</p>
+					<button
+						style={{
+							border: 'solid 1px #ddd',
+							padding: 10,
+						}}
+						onClick={getWeather}
+					>
+						Try again
+					</button>
+				</div>
+			)}
 
-			{weather && !loading && (
+			{!loading && !error && weather && (
 				<Weather
 					condition={weather.current.condition}
 					temperature={weather.current.temp_c}
 					feelsLike={weather.current.feelslike_c}
+					newsURL={getNewsURL(city)}
 					onUpdate={getWeather}
-					onOpenInfo={() => openPlace(city)}
 				/>
 			)}
 		</div>

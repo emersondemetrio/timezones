@@ -17,7 +17,7 @@ const Info = () => (
 	</svg>
 );
 
-const Reload = () => (
+export const Reload = () => (
 	<svg
 		version="1.1"
 		xmlns="http://www.w3.org/2000/svg"
@@ -57,13 +57,7 @@ const Reload = () => (
 	</svg>
 );
 
-const Weather = ({
-	condition,
-	temperature,
-	feelsLike,
-	onUpdate,
-	onOpenInfo,
-}) => {
+const Weather = ({ condition, temperature, feelsLike, onUpdate, newsURL }) => {
 	return (
 		<div className="weather">
 			<p>
@@ -76,13 +70,13 @@ const Weather = ({
 				alt={condition.text}
 			/>
 
-			<button onClick={() => onUpdate()}>
+			<button onClick={onUpdate}>
 				<Reload />
 			</button>
 
-			<button onClick={() => onOpenInfo()}>
+			<a href={newsURL} target="_blank" rel="noreferrer">
 				<Info />
-			</button>
+			</a>
 		</div>
 	);
 };
