@@ -1,22 +1,32 @@
 [
 	{
 		"name": "San Francisco/USA",
+		"city": "San Francisco, California, USA",
 		"timeZone": "America/Los_Angeles"
 	},
 
 	{
 		"name": "Florianópolis/Brazil",
+		"city": "Florianópolis, Santa Catarina, Brasil",
 		"timeZone": "America/Sao_Paulo",
 		"folks": []
 	},
 	{
 		"name": "Lisbon/Portugal",
+		"city": "Lisbon, Portugal",
 		"timeZone": "Europe/Lisbon",
 		"folks": []
 	},
 	{
 		"name": "Munich/Germany",
+		"city": "Munich, Germany",
 		"timeZone": "Europe/Berlin",
+		"folks": []
+	},
+	{
+		"name": "Europe/Gothenburg",
+		"city": "Gothenburg, Sweden",
+		"timeZone": "Europe/Stockholm",
 		"folks": []
 	}
 ]
