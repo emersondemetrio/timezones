@@ -8,32 +8,87 @@ code {
 		monospace;
 }
 
-.weather,
-.info {
+html,
+body {
+	background: #fff;
+}
+.App {
+	width: 100%;
 	display: flex;
-	justify-content: space-around;
 	align-items: center;
+	flex-direction: column;
+}
+header {
+	width: 95%;
+	display: flex;
+	justify-content: center;
+	flex-flow: row wrap;
 }
 
-.weather p {
-	width: 300px;
-	text-align: left;
+.row {
+	width: 70%;
+	justify-content: flex-start;
+	display: flex;
+	flex-flow: row wrap;
 }
 
-.update-button:hover {
-	box-shadow: 1px 3px 5px #ddd;
+.place {
+	box-shadow: 1px 5px 15px #ccc;
+	width: 15em;
+	height: auto;
+	border-radius: 3px;
+	padding: 2em;
+	margin: 1em;
+	overflow: hidden;
+	position: relative;
+	flex: auto;
+	background: #fff;
+	height: 250px;
 }
 
-.update-button {
+.place img {
+	max-width: 100%;
+	height: auto !important;
+	text-align: center;
+}
+
+.place_inner {
+	display: flex;
+	align-items: center;
+	flex-flow: column wrap;
+}
+
+.place_inner p {
+	color: #2b2d42;
+}
+
+.place_inner button,
+.place_inner img {
+	border: 1px solid rgba(255, 255, 255, 0.5);
+	color: #fff;
+	border-radius: 3px;
+	background: none;
 	cursor: pointer;
+	transition: background ease-in 0.25s;
+	width: 80px;
+	height: 80px;
 }
 
-.condition-img {
-	width: 50px;
+.place_inner button:hover {
+	background: white;
+	color: #2b2d42;
 }
 
-button,
-a {
-	background-color: rgba(0, 0, 0, 0);
-	border: none;
+.place_overlay h2 {
+	color: rgba(43, 45, 66, 0.7);
+	font-size: 1.2em;
+	margin: 1em 0;
+}
+
+.info,
+.place-info {
+	display: flex;
+	align-items: center;
+	align-content: center;
+	justify-content: space-around;
 }

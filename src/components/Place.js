@@ -1,6 +1,7 @@
 import { memo, useEffect, useState } from 'react';
 import { getWeatherOf } from '../services/weatherapi';
 import Weather from './Weather';
+import { Loading } from './Loading';
 
 const genericDateOptions = {
 	year: 'numeric',
@@ -20,40 +21,6 @@ const formatDate = (timeZone, date) =>
 
 const getNewsURL = (city) =>
 	`https://google.com/search?q=${encodeURI(city)}&source=lnms&tbm=nws`;
-
-const Loading = () => (
-	<svg
-		xmlns="http://www.w3.org/2000/svg"
-		style={{
-			display: 'block',
-			shapeRendering: 'auto',
-		}}
-		width="40px"
-		height="40px"
-		viewBox="0 0 100 100"
-		preserveAspectRatio="xMidYMid"
-	>
-		<circle
-			cx="50"
-			cy="50"
-			r="32"
-			strokeWidth="8"
-			stroke="#0a0a0a"
-			strokeDasharray="50.26548245743669 50.26548245743669"
-			fill="none"
-			strokeLinecap="round"
-		>
-			<animateTransform
-				attributeName="transform"
-				type="rotate"
-				repeatCount="indefinite"
-				dur="1s"
-				keyTimes="0;1"
-				values="0 50 50;360 50 50"
-			></animateTransform>
-		</circle>
-	</svg>
-);
 
 const Place = ({ name, timeZone, city }) => {
 	const [tz, setTz] = useState(formatDate(timeZone, new Date()));
@@ -85,7 +52,7 @@ const Place = ({ name, timeZone, city }) => {
 	}, []);
 
 	return (
-		<div className="card">
+		<div className="place">
 			<h3>{name}</h3>
 			<h4>{tz}</h4>
 			{loading && (
