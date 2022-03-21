@@ -9,8 +9,8 @@ export const App = () => {
 			</header>
 
 			<div className="row">
-				{places.map((t) => (
-					<Place {...t} key={t.timeZone} />
+				{places.map((place) => (
+					<Place {...place} key={place.timeZone} />
 				))}
 			</div>
 		</div>

@@ -21,6 +21,7 @@
 		"name": "Munich/Germany",
 		"city": "Munich, Germany",
 		"timeZone": "Europe/Berlin",
+		"highlighted": true,
 		"folks": []
 	},
 	{

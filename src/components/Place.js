@@ -22,7 +22,7 @@ const formatDate = (timeZone, date) =>
 const getNewsURL = (city) =>
 	`https://google.com/search?q=${encodeURI(city)}&source=lnms&tbm=nws`;
 
-const Place = ({ name, timeZone, city }) => {
+const Place = ({ name, timeZone, city, highlighted }) => {
 	const [tz, setTz] = useState(formatDate(timeZone, new Date()));
 	const [weather, setWeather] = useState(null);
 	const [error, setError] = useState(false);
@@ -52,7 +52,7 @@ const Place = ({ name, timeZone, city }) => {
 	}, []);
 
 	return (
-		<div className="place">
+		<div className={`place ${highlighted ? 'highlighted' : ''}`}>
 			<h3>{name}</h3>
 			<h4>{tz}</h4>
 			{loading && (
