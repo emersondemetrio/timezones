@@ -8,26 +8,26 @@
 	{
 		"name": "Florianópolis/Brazil",
 		"city": "Florianópolis, Santa Catarina, Brasil",
-		"timeZone": "America/Sao_Paulo",
-		"folks": []
+		"timeZone": "America/Sao_Paulo"
 	},
 	{
 		"name": "Lisbon/Portugal",
 		"city": "Lisbon, Portugal",
-		"timeZone": "Europe/Lisbon",
-		"folks": []
+		"timeZone": "Europe/Lisbon"
+	},
+	{
+		"name": "Dublin/Ireland",
+		"timeZone": "Europe/Dublin",
+		"city": "Dublin, Ireland"
 	},
 	{
 		"name": "Munich/Germany",
 		"city": "Munich, Germany",
-		"timeZone": "Europe/Berlin",
-		"highlighted": true,
-		"folks": []
+		"timeZone": "Europe/Berlin"
 	},
 	{
 		"name": "Europe/Gothenburg",
 		"city": "Gothenburg, Sweden",
-		"timeZone": "Europe/Stockholm",
-		"folks": []
+		"timeZone": "Europe/Stockholm"
 	}
 ]

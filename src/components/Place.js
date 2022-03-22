@@ -1,4 +1,4 @@
-import { memo, useEffect, useState } from 'react';
+import { memo, useMemo, useEffect, useState } from 'react';
 import { getWeatherOf } from '../services/weatherapi';
 import Weather from './Weather';
 import { Loading } from './Loading';
@@ -22,7 +22,20 @@ const formatDate = (timeZone, date) =>
 const getNewsURL = (city) =>
 	`https://google.com/search?q=${encodeURI(city)}&source=lnms&tbm=nws`;
 
-const Place = ({ name, timeZone, city, highlighted }) => {
+const isCurrentLocalTimeZone = (timeZone) =>
+	Intl.DateTimeFormat().resolvedOptions().timeZone === timeZone;
+
+const Place = ({ name, timeZone, city }) => {
+	const dateDiffInHours = useMemo(
+		() =>
+			new Date(
+				new Date().toLocaleString('en-US', {
+					timeZone,
+				})
+			).getHours() - new Date().getHours(),
+		[timeZone]
+	);
+
 	const [tz, setTz] = useState(formatDate(timeZone, new Date()));
 	const [weather, setWeather] = useState(null);
 	const [error, setError] = useState(false);
@@ -50,11 +63,20 @@ const Place = ({ name, timeZone, city, highlighted }) => {
 	useEffect(() => {
 		getWeather();
 	}, []);
-
+	const highlighted = isCurrentLocalTimeZone(timeZone);
 	return (
 		<div className={`place ${highlighted ? 'highlighted' : ''}`}>
 			<h3>{name}</h3>
-			<h4>{tz}</h4>
+			<h3>
+				{tz}
+				{!highlighted && (
+					<span className="date-diff" data-content={dateDiffInHours}>
+						{' '}
+						({dateDiffInHours})
+					</span>
+				)}
+			</h3>
+
 			{loading && (
 				<div className="info">
 					<Loading />

@@ -102,3 +102,11 @@ header {
 		rgba(198, 198, 198, 1) 100%
 	);
 }
+
+.date-diff {
+	color: #2c2c2c;
+}
+
+.date-diff[data-content^='-'] {
+	color: #d93333;
+}
