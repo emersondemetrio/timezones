@@ -26,6 +26,7 @@ const isCurrentLocalTimeZone = (timeZone) =>
 	Intl.DateTimeFormat().resolvedOptions().timeZone === timeZone;
 
 const Place = ({ name, timeZone, city }) => {
+	const highlighted = isCurrentLocalTimeZone(timeZone);
 	const dateDiffInHours = useMemo(
 		() =>
 			new Date(
@@ -63,7 +64,7 @@ const Place = ({ name, timeZone, city }) => {
 	useEffect(() => {
 		getWeather();
 	}, []);
-	const highlighted = isCurrentLocalTimeZone(timeZone);
+
 	return (
 		<div className={`place ${highlighted ? 'highlighted' : ''}`}>
 			<h3>{name}</h3>
