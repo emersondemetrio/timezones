@@ -109,7 +109,7 @@ p {
 }
 
 .date-diff {
-	color: #2c2c2c;
+	color: #1a697a;
 }
 
 .date-diff[data-content^='-'] {
