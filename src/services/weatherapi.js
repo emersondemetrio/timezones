@@ -1,5 +1,5 @@
 const API_KEY = process.env.REACT_APP_WEATHER_API_KEY;
-const BASE_URL = 'http://api.weatherapi.com/v1/current.json';
+const BASE_URL = 'https://api.weatherapi.com/v1/current.json';
 const DEFAULT_PLACE = 'Florianópolis, Santa Catarina, Brasil';
 
 export const getSearchString = (place) => {
