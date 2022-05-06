@@ -104,6 +104,11 @@ p {
 	justify-content: space-around;
 }
 
+.place-info {
+	min-width: 300px;
+	justify-content: space-evenly;
+}
+
 .highlighted {
 	background-color: #1a697a;
 }
@@ -114,4 +119,8 @@ p {
 
 .date-diff[data-content^='-'] {
 	color: #d93333;
+}
+
+.condition-img {
+	cursor: default !important;
 }
