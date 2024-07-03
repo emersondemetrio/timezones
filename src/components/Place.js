@@ -20,7 +20,7 @@ const formatDate = (timeZone, date) =>
 	}).format(date);
 
 const getNewsURL = (city) =>
-	`https://google.com/search?q=${encodeURI(city)}&source=lnms&tbm=nws`;
+	`https://www.google.com/search?q=${encodeURI(city)}&source=lnms&tbm=nws`;
 
 const isCurrentLocalTimeZone = (timeZone) =>
 	Intl.DateTimeFormat().resolvedOptions().timeZone === timeZone;
